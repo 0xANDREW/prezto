@@ -10,4 +10,31 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+autoload -Uz promptinit
+promptinit
+prompt skwp
+
+source $HOME/bin/no-commit-secrets.sh
+
+alias pbinclip='xclip -o | pastebincl | grep URL | cut -c 6- | xclip'
+alias mount-iso="sudo mount -o loop -t iso9660"
+alias tmux-copy="tmux show-buffer | xclip"
+alias ubuntu-update="sudo apt update && sudo apt dist-upgrade -y"
+alias apti="sudo apt install -y"
+alias tmux-start="tmuxinator start vim"
+alias saw-watch-rpi="saw watch rpi --raw --prefix"
+alias saw-get-rpi="saw get rpi --raw --prefix"
+
+PATH="$HOME/bin:$PATH"  
+PATH="/usr/local/heroku/bin:$PATH"
+PATH="$HOME/.local/bin:$PATH"
+
+ssh-add
+ssh-add $HOME/.ssh/rpi
+ssh-add $HOME/.ssh/aws.pem
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
