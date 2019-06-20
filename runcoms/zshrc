@@ -24,6 +24,7 @@ alias apti="sudo apt install -y"
 alias tmux-start="tmuxinator start vim"
 alias saw-watch-rpi="saw watch rpi --raw --prefix"
 alias saw-get-rpi="saw get rpi --raw --prefix"
+alias uu='udevil umount'
 
 PATH="$HOME/bin:$PATH"  
 PATH="/usr/local/heroku/bin:$PATH"
